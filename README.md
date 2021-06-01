@@ -28,7 +28,8 @@ get_database_metadata(my_secret_token, my_db_id)
 # first we create a filter using the helpers: 
 query <- notion_or(add_checkbox_filter("column2", TRUE), 
                    add_checkbox_filter("column3", FALSE)) %>% notion_filter()
-                   
+ 
+# then, call the database with that filter (pagination is not supported for now)
 results <- get_database(my_secret_token, my_db_id, query)
 ```
 ❗ Not all data types (such as **relations**) are supported via `get_database()` yet. Only number formula, number, title, checkbox and date (with start date only) for now. 
