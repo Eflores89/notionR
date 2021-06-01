@@ -21,7 +21,9 @@ For now, we can `GET` database metadata and the results of a database query, wit
 # my_db_id <- "lask1-231lñ3k2-p010202"
 # to get the metadata (columns and column id's), 
 get_database_metadata(my_secret_token, my_db_id)
+```
 
+```{r}
 # to get the actual database items, we need to query the database.
 # first we create a filter using the helpers: 
 query <- notion_or(add_checkbox_filter("column2", TRUE), 
