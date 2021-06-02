@@ -3,7 +3,8 @@ Title: R interfase for Notion API
 Version: 0.0.0.9000
 Author: Eduardo Flores
 Depends: R (>= 2.10)
-Maintainer: Eduardo Flores <eduardo@enelmargen.org>
+Authors@R: 
+    person(given = "Eduardo",family = "Flores", role = c("maintainer"), email = "eduardo@enelmargen.org")
 Description: Provides wrappers to access the Notion API using R.
 License: `use_mit_license()`
 Encoding: UTF-8
