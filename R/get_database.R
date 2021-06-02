@@ -23,14 +23,13 @@
 #' @importFrom httr POST
 #' @importFrom httr content
 #' @export
-#'
 get_database <- function(secret, database, filters){
   auth_secret <- paste0("Bearer ", secret)
 
   headers = c(
     `Authorization` = auth_secret,
     `Notion-Version` = '2021-05-13',
-    `Content-Type` = 'application/json')
+    `Content-Type` = 'application/json' )
 
   res <- httr::POST(url = paste0('https://api.notion.com/v1/databases/', database, '/query'),
                     httr::add_headers(.headers = headers),
