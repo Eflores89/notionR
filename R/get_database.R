@@ -10,6 +10,7 @@
 #' @param secret Notion API token
 #' @param database Notion database ID
 #' @param filters A list built with filter operators (see filters) to query database
+#' @param rollup_return return "ids" or "names" in rollup properties (if allowed, i.e., is not a number)?
 #'
 #' @examples
 #' \dontrun{
@@ -23,8 +24,7 @@
 #' @importFrom httr POST
 #' @importFrom httr content
 #' @export
-#'
-get_database <- function(secret, database, filters){
+get_database <- function(secret, database, filters, rollup_return = "id"){
   auth_secret <- paste0("Bearer ", secret)
 
   headers = c(
@@ -40,12 +40,13 @@ get_database <- function(secret, database, filters){
   d <- httr::content(res)
 
   d <- .flatten_database(d, meta = get_database_metadata(secret = secret,
-                                                         database = database) )
+                                                         database = database),
+                            rollup_return = rollup_return)
 
   return(d)
 }
-
-.flatten_database <- function(d, meta){
+#' @export
+.flatten_database <- function(d, meta, rollup_return){
   rown <- length(d$results)
   coln <- length(meta$name)+3
 
@@ -74,14 +75,15 @@ get_database <- function(secret, database, filters){
         }else{
           col_index <- match(this_row$properties[[j]]$id, meta$id)+3
           df[i, col_index] <- .get_by_type(type = this_row$properties[[j]]$type,
-                                           props = this_row$properties[[j]])
+                                           props = this_row$properties[[j]],
+                                           rollup_return = rollup_return)
         } # end of if condition
       } # end of property for
   }
   return(df)
 }
-
-.get_by_type <- function(type, props){
+#' @export
+.get_by_type <- function(type, props, rollup_return){
 
   if(type == "formula"){
     if(props$formula$type == "number"){
@@ -109,7 +111,12 @@ get_database <- function(secret, database, filters){
   }
 
   if(type == "relation"){
-    e <- as.character("relation (not supported)")
+    e <- paste(unlist(props$relation), collapse = "|")
+  }
+
+  if(type == "rollup"){
+    e <- .rollup_get(rollup_scope = props$rollup,
+                     rollup_return = rollup_return)
   }
 
   if(exists("e")){
@@ -117,6 +124,34 @@ get_database <- function(secret, database, filters){
   }else{
     print(type)
     stop("type not supported... yet")
+  }
+
+}
+
+
+.rollup_get <- function(rollup_scope, rollup_return){
+  rollup_type <- rollup_scope$type
+
+  if(rollup_type == "array"){
+    if(rollup_scope$array[[1]]$type == "select"){
+      if(rollup_return == "id" & "id" %in% names(rollup_scope$array[[1]]$select) ){
+        e <- rollup_scope$array[[1]]$select$id
+      }else{
+        e <- rollup_scope$array[[1]]$select$name
+      }
+    }
+  } # end of array ---
+
+  if(rollup_type == "number"){
+    e <- rollup_scope$number
+    print(e)
+    rm(e)
+  }
+
+  if(exists("e")){
+    return(e)
+  }else{
+    stop("rollup type not supported yet... ")
   }
 
 }
