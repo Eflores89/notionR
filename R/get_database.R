@@ -69,17 +69,11 @@ get_database <- function(secret, database, filters, rollup_return = "id"){
     print(i)
       for(j in 1:length(this_row$properties)){
 
-        if(this_row$properties[[j]]$type == "relation"){
-          # do nothing!
-          # for now, I do not know how to handle relations as they are not in table
-          # metadata results! Hence, skipping.
-
-        }else{
-          col_index <- match(this_row$properties[[j]]$id, meta$id)+3
-          df[i, col_index] <- .get_by_type(type = this_row$properties[[j]]$type,
-                                           props = this_row$properties[[j]],
-                                           rollup_return = rollup_return)
-        } # end of if condition
+        # we will handle objections thru get_by_type instead of if's here...
+        col_index <- match(this_row$properties[[j]]$id, meta$id)+3
+        df[i, col_index] <- .get_by_type(type = this_row$properties[[j]]$type,
+                                         props = this_row$properties[[j]],
+                                         rollup_return = rollup_return)
       } # end of property for
   }
   return(df)
@@ -132,18 +126,32 @@ get_database <- function(secret, database, filters, rollup_return = "id"){
 
 
 .rollup_get <- function(rollup_scope, rollup_return){
+  .is_it_worth_it <- function(array){
+    if(length(array)<1){FALSE}else{TRUE}
+  }
+
   rollup_type <- rollup_scope$type
 
+  # array type rollup -------------------------------------------------
   if(rollup_type == "array"){
-    if(rollup_scope$array[[1]]$type == "select"){
-      if(rollup_return == "id" & "id" %in% names(rollup_scope$array[[1]]$select) ){
-        e <- rollup_scope$array[[1]]$select$id
-      }else{
-        e <- rollup_scope$array[[1]]$select$name
+    if(.is_it_worth_it(rollup_scope$array)){
+
+      #array with a select property
+      if(rollup_scope$array[[1]]$type == "select"){
+        if(rollup_return == "id" & "id" %in% names(rollup_scope$array[[1]]$select) ){
+          e <- rollup_scope$array[[1]]$select$id
+        }else{
+          e <- rollup_scope$array[[1]]$select$name
+        }
       }
+
+      # array with no actual data point ->
+    }else{
+      e <- NA
     }
   } # end of array ---
 
+  # number type rollup -------------------------------------------------
   if(rollup_type == "number"){
     e <- rollup_scope$number
     print(e)
