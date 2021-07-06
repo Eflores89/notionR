@@ -4,7 +4,7 @@
 \alias{get_database}
 \title{Returns a database as a data.frame}
 \usage{
-get_database(secret, database, filters)
+get_database(secret, database, filters, rollup_return = "id")
 }
 \arguments{
 \item{secret}{Notion API token}
@@ -12,6 +12,8 @@ get_database(secret, database, filters)
 \item{database}{Notion database ID}
 
 \item{filters}{A list built with filter operators (see filters) to query database}
+
+\item{rollup_return}{return "ids" or "names" in rollup properties (if allowed, i.e., is not a number)?}
 }
 \value{
 data.frame
@@ -26,7 +28,7 @@ This is actually a POST request as per Notions API: https://developers.notion.co
 \dontrun{
 my_db <- "database_id"
 my_secret <- "NOTION API Secret"
-my_query <- notion_or(add_checkbox_filter("tuxs", TRUE),
+my_query <- notion_or(add_checkbox_filter("tu}s", TRUE),
                       add_checkbox_filter("YiIx", FALSE)) \%>\% notion_filter()
 my_db_data <- get_database(secret = my_secret, database = my_db, filters = my_query)
 }

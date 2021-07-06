@@ -24,11 +24,8 @@
 #' @importFrom httr POST
 #' @importFrom httr content
 #' @export
-<<<<<<< HEAD
 get_database <- function(secret, database, filters, rollup_return = "id"){
-=======
-get_database <- function(secret, database, filters){
->>>>>>> a4937a13a0f5bdda873c31d6feada82de05acae6
+
   auth_secret <- paste0("Bearer ", secret)
 
   headers = c(

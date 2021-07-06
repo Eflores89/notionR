@@ -5,6 +5,7 @@
 \alias{notion_filter}
 \alias{notion_or}
 \alias{add_checkbox_filter}
+\alias{add_select_filter}
 \title{Filter Operators}
 \usage{
 notion_filter(., sort = NULL)
@@ -12,6 +13,8 @@ notion_filter(., sort = NULL)
 notion_or(...)
 
 add_checkbox_filter(property, equals = TRUE)
+
+add_select_filter(property, equals)
 }
 \arguments{
 \item{.}{List of filter conditions}
@@ -20,7 +23,7 @@ add_checkbox_filter(property, equals = TRUE)
 
 \item{property}{name or id of property (column) in database}
 
-\item{equals}{TRUE (default) or FALSE condition to meet in checkbox}
+\item{equals}{TRUE (default) or FALSE condition to meet in checkbox. Equals (contains) for select filter.}
 }
 \value{
 list
