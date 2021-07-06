@@ -39,6 +39,11 @@ Adds a checkbox filter condition.
 Still WIP, only a few operators are currently available.
 }
 \examples{
+\dontrun{
+# to create an OR filter on two checkbox columns with id's "tus" and "YiIx"...
+my_query <- notion_or(add_checkbox_filter("tus", TRUE),
+                      add_checkbox_filter("YiIx", FALSE)) \%>\% notion_filter()
+ }
 # add a condition where checkbox should be checked
 add_checkbox_filter("id_column")
 # add a condition where checkbox should NOT be checked

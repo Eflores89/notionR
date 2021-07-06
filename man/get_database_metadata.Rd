@@ -29,6 +29,7 @@ my_secret <- "NOTION API Secret"
 
 my_db_data <- get_database_metadata(secret = my_secret, database = my_db)
 }
+
 }
 \author{
 Eduardo Flores

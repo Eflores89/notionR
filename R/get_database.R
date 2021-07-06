@@ -16,14 +16,15 @@
 #' \dontrun{
 #' my_db <- "database_id"
 #' my_secret <- "NOTION API Secret"
-#' my_query <- notion_or(add_checkbox_filter("tu}s", TRUE),
+#' my_query <- notion_or(add_checkbox_filter("tus", TRUE),
 #'                       add_checkbox_filter("YiIx", FALSE)) %>% notion_filter()
-#' my_db_data <- get_database(secret = my_secret, database = my_db, filters = my_query)
+#' my_db_data <- get_database(secret = my_secret, database = my_db, filters = my_query, rollup_return = "id")
 #' }
 #'
 #' @importFrom httr POST
 #' @importFrom httr content
 #' @export
+#'
 get_database <- function(secret, database, filters, rollup_return = "id"){
 
   auth_secret <- paste0("Bearer ", secret)

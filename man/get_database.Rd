@@ -28,9 +28,9 @@ This is actually a POST request as per Notions API: https://developers.notion.co
 \dontrun{
 my_db <- "database_id"
 my_secret <- "NOTION API Secret"
-my_query <- notion_or(add_checkbox_filter("tu}s", TRUE),
+my_query <- notion_or(add_checkbox_filter("tus", TRUE),
                       add_checkbox_filter("YiIx", FALSE)) \%>\% notion_filter()
-my_db_data <- get_database(secret = my_secret, database = my_db, filters = my_query)
+my_db_data <- get_database(secret = my_secret, database = my_db, filters = my_query, rollup_return = "id")
 }
 
 }

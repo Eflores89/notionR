@@ -16,6 +16,7 @@
 #'
 #' my_db_data <- get_database_metadata(secret = my_secret, database = my_db)
 #' }
+#'
 #' @importFrom httr GET
 #' @importFrom httr content
 #'

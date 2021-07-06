@@ -13,10 +13,10 @@
 #'
 #' @examples
 #' \dontrun{
-#' # to create an OR filter on two checkbox columns with id's "tu}s" and "YiIx"...
-#' my_query <- notion_or(add_checkbox_filter("tu}s", TRUE),
+#' # to create an OR filter on two checkbox columns with id's "tus" and "YiIx"...
+#' my_query <- notion_or(add_checkbox_filter("tus", TRUE),
 #'                       add_checkbox_filter("YiIx", FALSE)) %>% notion_filter()
-#' }
+#'  }
 #' @name filters
 NULL
 
