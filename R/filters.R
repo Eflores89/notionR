@@ -45,7 +45,7 @@ notion_or <- function(...){
 #' Adds a checkbox filter condition.
 #'
 #' @param property name or id of property (column) in database
-#' @param equals TRUE (default) or FALSE condition to meet in checkbox
+#' @param equals TRUE (default) or FALSE condition to meet in checkbox. Equals (contains) for select filter.
 #'
 #' @author Eduardo Flores
 #' @return list
@@ -63,4 +63,10 @@ NULL
 add_checkbox_filter <- function(property, equals = TRUE){
   list("property" = property,
        "checkbox" = list("equals" = equals))
+}
+
+#' @export
+#' @rdname filters
+add_select_filter <- function(property, equals){
+    list(property = property, select = list(equals = equals))
 }
