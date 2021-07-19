@@ -6,6 +6,7 @@
 \alias{notion_or}
 \alias{add_checkbox_filter}
 \alias{add_select_filter}
+\alias{add_relation_id_filter}
 \title{Filter Operators}
 \usage{
 notion_filter(., sort = NULL)
@@ -15,6 +16,8 @@ notion_or(...)
 add_checkbox_filter(property, equals = TRUE)
 
 add_select_filter(property, equals)
+
+add_relation_id_filter(property, equals)
 }
 \arguments{
 \item{.}{List of filter conditions}
