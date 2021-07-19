@@ -70,3 +70,9 @@ add_checkbox_filter <- function(property, equals = TRUE){
 add_select_filter <- function(property, equals){
     list(property = property, select = list(equals = equals))
 }
+
+#' @export
+#' @rdname filters
+add_relation_id_filter <- function(property, equals){
+  list(property = property, relation = list(contains = equals))
+}
