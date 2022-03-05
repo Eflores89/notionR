@@ -20,12 +20,12 @@
 #' @importFrom httr GET
 #' @importFrom httr content
 #'
-#' @name get_database_metadata
+#' @name getNotionDatabaseMetadata
 NULL
 
 #' @export
-#' @rdname get_database_metadata
-get_database_metadata <- function(secret, database, raw = FALSE){
+#' @rdname getNotionDatabaseMetadata
+getNotionDatabaseMetadata <- function(secret, database, raw = FALSE){
   auth_secret <- paste0("Bearer ", secret)
 
   headers = c(
@@ -40,28 +40,25 @@ get_database_metadata <- function(secret, database, raw = FALSE){
 
   print(paste0("Database: ", d$title[[1]]$plain_text, " [id: ", d$id, "]", ". Last edited on: ", d$last_edited_time))
 
-  if(!raw){ .flatten_database_metadata(d) }else{d}
+  if(!raw){
+          n <- length(d$properties)
+
+          cols <- NULL
+          for(i in 1:n){
+            col_name <- names(d$properties[i])[1]
+            col_id <- d$properties[[i]]$id[1]
+            col_type <- d$properties[[i]]$type[1]
+
+            tmp <- data.frame("name" = col_name,
+                              "id" = col_id,
+                              "type" = col_type
+            )
+
+            cols <- rbind.data.frame(tmp, cols)
+          }
+
+          return(cols)
+    }else{
+      return(d)
+      }
 }
-
-#' @export
-#' @rdname get_database_metadata
-.flatten_database_metadata <- function(d){
-  n <- length(d$properties)
-
-  cols <- NULL
-  for(i in 1:n){
-    col_name <- names(d$properties[i])[1]
-    col_id <- d$properties[[i]]$id[1]
-    col_type <- d$properties[[i]]$type[1]
-
-    tmp <- data.frame("name" = col_name,
-                      "id" = col_id,
-                      "type" = col_type
-                      )
-
-    cols <- rbind.data.frame(tmp, cols)
-  }
-
-  cols
-}
-
