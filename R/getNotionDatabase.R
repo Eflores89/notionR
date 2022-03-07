@@ -12,6 +12,7 @@
 #' @param filters A list built with filter operators (see filters) to query database. If NULL will query everything.
 #' @param show_progress show prints of progress?
 #' @param all_pages download all pages (loop thru paginations)?
+#' @param cover_icon also include cover and icon metadata?
 #'
 #'
 #' @importFrom httr POST
@@ -23,7 +24,7 @@
 #' @importFrom tidyr pivot_wider
 #' @importFrom dplyr bind_rows
 #' @export
-getNotionDatabase <- function(secret, database, filters = NULL, show_progress = FALSE, all_pages = TRUE){
+getNotionDatabase <- function(secret, database, filters = NULL, show_progress = FALSE, all_pages = TRUE, cover_icon = FALSE){
   options(dplyr.summarise.inform = FALSE) # to supress all the grouping warnings!
 
   # +++++++++ construct headers
@@ -43,7 +44,7 @@ getNotionDatabase <- function(secret, database, filters = NULL, show_progress = 
   }
 
   # +++++++++ this function "flattens" the results into a usable data.frame with 1 row per page (like the real database)
-  getItemsAndFlattenIntoDataFrame <- function(results){
+  getItemsAndFlattenIntoDataFrame <- function(results, cover_icon = cover_icon){
     if(show_progress){ print(paste0("- flattening into data.frame")) }
 
     # the results (i.e., rows) are extracted into a simple data.frame with value being a list of each item's properties and id's
@@ -52,6 +53,18 @@ getNotionDatabase <- function(secret, database, filters = NULL, show_progress = 
     # now, for each item, we will extract a tidy data.frame where we have all of the columns
     dd <- NULL
     for(i in 1:nrow(items)){
+      ## before we tidy up,
+      ## add NA's if there is no cover or icon AND we want to based on the option in the parameters of the function
+
+      if(cover_icon){
+        if(is.null(  items[[2]][[i]][["cover"]] )){
+          items[[2]][[i]][["cover"]] <- as.logical("FALSE")
+        }
+        if(is.null( items[[2]][[i]][["icon"]] )){
+          items[[2]][[i]][["icon"]] <- as.logical("FALSE")
+        }
+      }
+
       # this is a tidy dataset with column 1 = name (i.e., value.object.type, etc) and col2 = value (i.e,. d3f0ee76-fc3b-426c-8d23-cff84800b0d6)
       tmp <- tibble::enframe(unlist(items[[i, 2]]))
 
