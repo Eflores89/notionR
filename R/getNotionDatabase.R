@@ -44,7 +44,7 @@ getNotionDatabase <- function(secret, database, filters = NULL, show_progress = 
   }
 
   # +++++++++ this function "flattens" the results into a usable data.frame with 1 row per page (like the real database)
-  getItemsAndFlattenIntoDataFrame <- function(results, cover_icon = cover_icon){
+  getItemsAndFlattenIntoDataFrame <- function(results, cover_and_icon = cover_icon){
     if(show_progress){ print(paste0("- flattening into data.frame")) }
 
     # the results (i.e., rows) are extracted into a simple data.frame with value being a list of each item's properties and id's
@@ -56,7 +56,7 @@ getNotionDatabase <- function(secret, database, filters = NULL, show_progress = 
       ## before we tidy up,
       ## add NA's if there is no cover or icon AND we want to based on the option in the parameters of the function
 
-      if(cover_icon){
+      if(cover_and_icon){
         if(is.null(  items[[2]][[i]][["cover"]] )){
           items[[2]][[i]][["cover"]] <- as.logical("FALSE")
         }

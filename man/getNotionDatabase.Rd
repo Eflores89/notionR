@@ -9,7 +9,8 @@ getNotionDatabase(
   database,
   filters = NULL,
   show_progress = FALSE,
-  all_pages = TRUE
+  all_pages = TRUE,
+  cover_icon = FALSE
 )
 }
 \arguments{
@@ -22,6 +23,8 @@ getNotionDatabase(
 \item{show_progress}{show prints of progress?}
 
 \item{all_pages}{download all pages (loop thru paginations)?}
+
+\item{cover_icon}{also include cover and icon metadata?}
 }
 \value{
 data.frame
