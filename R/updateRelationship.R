@@ -9,7 +9,10 @@
 #' @importFrom httr PATCH
 updateRelationship <- function(secret, id, property_name, value){
 
-  payload <- paste0('"{\"properties\":{\"',property_name,'\":{\"relation\":[{\"id\":\"',value, '\"}]}}}"')
+  payload  <- sprintf(
+    "{\"properties\":{\"%s\":{\"relation\":[{\"id\":\"%s\"}]}}}",
+    property_name, value
+  )
 
   auth_secret <- paste0("Bearer ", secret)
 
@@ -24,7 +27,4 @@ updateRelationship <- function(secret, id, property_name, value){
                      encode = "json")
   d <- httr::content(res)
   return(d)
-
 }
-
-
