@@ -7,6 +7,7 @@
 #'  @param value value to update (should be a unique page id)
 #'
 #' @importFrom httr PATCH
+#' @export
 updateRelationship <- function(secret, id, property_name, value){
 
   payload  <- sprintf(
