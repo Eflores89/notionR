@@ -34,7 +34,7 @@ getNotionDatabase <- function(secret, database, filters = NULL, show_progress = 
   callAPI <- function(database, headers, filters, cursor){
     res <- httr::POST(url = paste0('https://api.notion.com/v1/databases/', database, '/query'),
                       httr::add_headers(.headers = headers),
-                      body = list("filters" = filters,
+                      body = list("filter" = filters,
                                   "start_cursor" = cursor),
                       # start_cursor = cursor,
                       encode = "json")
