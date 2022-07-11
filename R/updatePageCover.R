@@ -14,7 +14,7 @@
 #' @importFrom httr PATCH
 #' @importFrom httr content
 #' @export
-updateNotionPageCover <- function(secret, id, cover_url){
+updatePageCover <- function(secret, id, cover_url){
   patch <- list("cover" = list("type" = "external",
                                "external" = list( "url" = cover_url)))
 
