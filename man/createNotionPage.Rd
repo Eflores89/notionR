@@ -4,10 +4,16 @@
 \alias{createNotionPage}
 \title{Create a Page}
 \usage{
-createNotionPage(parent, children)
+createNotionPage(secret, parent_id, title_property, title = "untitled")
 }
 \arguments{
-\item{parent}{}
+\item{secret}{API token}
+
+\item{parent_id}{database id where page will be created or page under which it will nest}
+
+\item{title_property}{name of the title property}
+
+\item{title}{title of the new page}
 }
 \description{
 Silent Return

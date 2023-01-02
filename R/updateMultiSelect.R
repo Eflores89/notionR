@@ -3,14 +3,13 @@
 #'  Id refers to a page in a database, and should be normalized using normalizeChromeId().
 #'  @param secret API token
 #'  @param id Page id to be updated
-#'  @param property_name name of property to update (should be a number type property)
+#'  @param property_name name of property to update (should be a multiselect type property)
 #'  @param value value(s) to update. Could be 1 value or multiple, created with c().
 #'
 #'  @details This will rewrite whatever is already in the property. It will NOT append another select.
 #'
 #' @importFrom httr PATCH
 updateMultiSelect <- function(secret, id, property_name, value){
-
 
   if(length(value) == 1){
     payload  <- sprintf(
