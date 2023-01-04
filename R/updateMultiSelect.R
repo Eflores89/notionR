@@ -9,6 +9,7 @@
 #'  @details This will rewrite whatever is already in the property. It will NOT append another select.
 #'
 #' @importFrom httr PATCH
+#' @export
 updateMultiSelect <- function(secret, id, property_name, value){
 
   if(length(value) == 1){

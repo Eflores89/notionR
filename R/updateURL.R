@@ -7,6 +7,7 @@
 #'  @param value value to update
 #'
 #' @importFrom httr PATCH
+#' @export
 updateURL <- function(secret, id, property_name, value){
 
   payload  <- sprintf(
