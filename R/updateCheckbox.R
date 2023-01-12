@@ -1,0 +1,33 @@
+#' Updates a Checkbox Property
+#'
+#'  Id refers to a page in a database, and should be normalized using normalizeChromeId().
+#'  @param secret API token
+#'  @param id Page id to be updated
+#'  @param property_name name of property to update (should be a checkbox type property)
+#'  @param value value to update. Use R bollean object. Defaults to TRUE.
+#'
+#' @importFrom httr PATCH
+#' @export
+updateCheckbox <- function(secret, id, property_name, value = TRUE){
+
+  if(!value){ value <- "false"}else{value <- "true"}
+
+  payload  <- sprintf(
+    "{\"properties\":{\"%s\":{\"checkbox\":%s}}}",
+    property_name, value
+  )
+
+  auth_secret <- paste0("Bearer ", secret)
+
+  headers = c(
+    `Authorization` = auth_secret,
+    `Notion-Version` = '2022-02-22',
+    `Content-Type` = 'application/json' )
+
+  res <- httr::PATCH(url = paste0('https://api.notion.com/v1/pages/', id),
+                     httr::add_headers(.headers = headers),
+                     body = payload,
+                     encode = "json")
+  d <- httr::content(res)
+  return(d)
+}
