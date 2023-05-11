@@ -12,6 +12,7 @@
 #'
 #' @importFrom httr PATCH
 #' @importFrom httr content
+#' @importFrom httr content_type
 #' @export
 getNotionPage <- function(secret, id){
 

@@ -54,6 +54,4 @@ add_checkbox_filter("id_column", FALSE)
 }
 \author{
 Eduardo Flores
-
-Eduardo Flores
 }
