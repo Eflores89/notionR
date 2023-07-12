@@ -10,10 +10,8 @@
 #' @export
 updateURL <- function(secret, id, property_name, value){
 
-  payload  <- sprintf(
-    "{\"properties\":{\"%s\":{\"website\":{\"url\":\"%s\"}}}}",
-    property_name, value
-  )
+  payload <- sprintf("{\"properties\":{\"%s\":{\"url\":\"%s\"}}}",
+                     property_name, value)
 
   auth_secret <- paste0("Bearer ", secret)
 
