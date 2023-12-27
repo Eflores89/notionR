@@ -1,24 +1,24 @@
-#' Get a Page with it's Content
+#' Delete a Block
 #'
-#' Gets a Notion Page and the content inside it. Works with nested blocks too, as a page is also a block.
+#' Deletes a block
 #'
 #'
 #' @author Eduardo Flores
 #' @return list of response
 #'
 #' @param secret Notion API token
-#' @param id page id
+#' @param id block id
 #'
 #'
 #' @importFrom httr PATCH
 #' @importFrom httr content
 #' @importFrom httr content_type
 #' @export
-getNotionPageContent <- function(secret, id){
+deleteBlock <- function(secret, id){
 
-  url <- paste0("https://api.notion.com/v1/blocks/", id, "/children?page_size=100")
+  url <- paste0("https://api.notion.com/v1/blocks/", id)
 
-  response <- httr::VERB("GET", url,
+  response <- httr::VERB("DELETE", url,
                          add_headers(Notion_Version = '2022-06-28', Authorization = paste0('Bearer ', secret)),
                          content_type("application/octet-stream"),
                          accept("application/json"))
