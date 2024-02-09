@@ -14,7 +14,7 @@
 #' @importFrom httr content
 #' @importFrom httr content_type
 #' @export
-getNotionPage <- function(secret, id){
+getNotionPage_WIP <- function(secret, id){
 
   url <- paste0("https://api.notion.com/v1/pages/", id)
 
