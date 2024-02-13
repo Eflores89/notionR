@@ -3,6 +3,7 @@
 ```{r}
 usethis::use_readme_rmd()
 usethis::use_mit_license()
+usethis::use_news_md()
 
 # CI/CD
 # _check
