@@ -104,10 +104,21 @@ data_project
     #   properties.Achievement.rollup.function <chr>, …
     # ℹ Use `print(n = ...)` to see more rows
 
-To filter on some specific parameters, you can use code as follows:
+To filter on some specific parameters see `?filters`.  
+You can use code as follows:
 
 ``` r
 DATABASE_ID <- "00001111bbbbcccc"
+
+# using {notionR} built-in functions
+
+data_project <- getNotionDatabase(
+  secret = Sys.getenv("NOTION_API_SECRET"), 
+  database = DATABASE_ID,
+  filters = add_checkbox_filter("my property with checkbox", equals = FALSE)
+)
+
+# Or using list directly
 
 data_project <- getNotionDatabase(
   secret = Sys.getenv("NOTION_API_SECRET"), 

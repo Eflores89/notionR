@@ -1,10 +1,11 @@
-#'  Adds an H2 (heading two) Block to a Page
+#' Adds an H2 (heading two) Block to a Page
 #'
-#'  Id refers to a page id, content should be only text.
-#'  @param secret API token
-#'  @param id Page id where block will be appended
-#'  @param content content to append as H2
-#'  @param toggle defaults to FALSE. If TRUE, will create an H1 Toggle.
+#' Id refers to a page id, content should be only text.
+#'
+#' @param secret API token
+#' @param id Page id where block will be appended
+#' @param content content to append as H2
+#' @param toggle defaults to FALSE. If TRUE, will create an H1 Toggle.
 #'
 #' @importFrom httr PATCH
 #' @export

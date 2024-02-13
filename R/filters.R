@@ -9,6 +9,7 @@
 #'
 #' @param . List of filter conditions
 #' @param sort List of sort conditions. NULL by default.
+#' @param ... A combination of filters
 #'
 #'
 #' @examples

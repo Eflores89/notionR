@@ -2,5 +2,21 @@
 
 ```{r}
 usethis::use_readme_rmd()
+usethis::use_mit_license()
 ```
+
+# Deal with dependencies
+
+```{r}
+attachment::att_amend_desc()
+usethis::use_build_ignore("dev")
+```
+
+
+# Check package
+
+```{r}
+devtools::check()
+```
+
 

@@ -10,9 +10,7 @@
 #' @param id block id
 #'
 #'
-#' @importFrom httr PATCH
-#' @importFrom httr content
-#' @importFrom httr content_type
+#' @importFrom httr PATCH content content_type add_headers accept
 #' @export
 deleteBlock <- function(secret, id){
 

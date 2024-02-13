@@ -6,13 +6,18 @@
 \usage{
 updateMultiSelect(secret, id, property_name, value)
 }
+\arguments{
+\item{secret}{API token}
+
+\item{id}{Page id to be updated}
+
+\item{property_name}{name of property to update (should be a multiselect type property)}
+
+\item{value}{value(s) to update. Could be 1 value or multiple, created with c().}
+}
 \description{
 Id refers to a page in a database, and should be normalized using normalizeChromeId().
-@param secret API token
-@param id Page id to be updated
-@param property_name name of property to update (should be a multiselect type property)
-@param value value(s) to update. Could be 1 value or multiple, created with c().
 }
 \details{
-@details This will rewrite whatever is already in the property. It will NOT append another select.
+This will rewrite whatever is already in the property. It will NOT append another select.
 }
