@@ -8,6 +8,7 @@ usethis::use_mit_license()
 # _check
 usethis::use_github_action("check-standard")
 # _pkgdown
+usethis::use_pkgdown()
 usethis::use_github_action("pkgdown")
 ```
 

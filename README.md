@@ -19,7 +19,7 @@ API](https://developers.notion.com%22) using R
 You can install the development version of notionR like so:
 
 ``` r
-pak::pak("statnmap/notionR")
+pak::pak("Eflores89/notionR")
 ```
 
 ## Access to Notion API

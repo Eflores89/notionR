@@ -5,6 +5,8 @@ Author: Eduardo Flores
 Maintainer: Eduardo Flores <eduardo@enelmargen.org>
 Description: Provides wrappers to access the Notion API using R.
 License: MIT + file LICENSE
+URL: https://Eflores89.github.io/notionR/,
+    https://github.com/Eflores89/notionR
 Depends: 
     R (>= 2.10)
 Imports: 

@@ -30,7 +30,7 @@ This is a wrapper functions to access [Notion API](https://developers.notion.com
 You can install the development version of notionR like so:
 
 ``` r
-pak::pak("statnmap/notionR")
+pak::pak("Eflores89/notionR")
 ```
 
 ## Access to Notion API
