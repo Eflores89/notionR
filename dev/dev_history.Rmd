@@ -1,0 +1,6 @@
+# Set documentation
+
+```{r}
+usethis::use_readme_rmd()
+```
+
