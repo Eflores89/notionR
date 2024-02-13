@@ -12,6 +12,7 @@ Depends:
 Imports: 
     dplyr,
     httr,
+    httr2,
     stringi,
     tibble,
     tidyr
