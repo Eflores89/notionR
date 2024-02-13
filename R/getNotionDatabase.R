@@ -15,8 +15,6 @@
 #' @param cover_icon also include cover and icon metadata?
 #'
 #'
-#' @importFrom httr POST
-#' @importFrom httr content
 #' @importFrom tibble enframe
 #' @importFrom dplyr %>%
 #' @importFrom dplyr group_by
