@@ -31,7 +31,7 @@ addBlockH2 <- function(secret, id, content, toggle = FALSE){
 
   headers = c(
     `Authorization` = auth_secret,
-    `Notion-Version` = '2022-02-22',
+    `Notion-Version` = '2022-06-28',
     `Content-Type` = 'application/json' )
 
   res <- httr::PATCH(url = paste0('https://api.notion.com/v1/blocks/', id, '/children'),

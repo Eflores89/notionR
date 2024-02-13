@@ -45,7 +45,7 @@
 #
 #   headers = c(
 #     `Authorization` = 'Bearer secret_vxCZixTbzZn3eZzyk7QivNp8Si6nd1BHaVixHoKPX7U',
-#     `Notion-Version` = '2022-02-22',
+#     `Notion-Version` = '2022-06-28',
 #     `Content-Type` = 'application/json' )
 #
 #   res <- httr::PATCH(url = paste0("https://api.notion.com/v1/blocks/", notionR::normalizeChromePageIds("751bbfe32d5140569e116951c7a4bbb3"),"/children"),
