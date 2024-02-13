@@ -15,11 +15,26 @@ updateRelationship <- function(secret, id, property_name, value){
     property_name, value
   )
 
+
+  if(length(value) == 1){
+    payload  <- sprintf(
+      "{\"properties\":{\"%s\":{\"relation\":[{\"id\":\"%s\"}]}}}",
+      property_name, value
+    )
+  }else{
+    options <- paste0('{\"id\":\"',value,'\"}', collapse = ",")
+    payload  <- paste0(
+      '{\"properties\":{\"', property_name,'\":{\"relation\":[', options, ']}}}'
+    )
+  }
+
+
+
   auth_secret <- paste0("Bearer ", secret)
 
   headers = c(
     `Authorization` = auth_secret,
-    `Notion-Version` = '2022-02-22',
+    `Notion-Version` = '2022-06-28',
     `Content-Type` = 'application/json' )
 
   res <- httr::PATCH(url = paste0('https://api.notion.com/v1/pages/', id),
@@ -28,4 +43,5 @@ updateRelationship <- function(secret, id, property_name, value){
                      encode = "json")
   d <- httr::content(res)
   return(d)
+
 }

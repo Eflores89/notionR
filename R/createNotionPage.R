@@ -25,7 +25,7 @@ createNotionPage <- function(secret, parent_id, title_property, title = "untitle
 
   headers = c(
     `Authorization` = auth_secret,
-    `Notion-Version` = '2021-08-16',
+    `Notion-Version` = '2022-06-28',
     `Content-Type` = 'application/json' )
 
   res <- httr::POST(url = paste0('https://api.notion.com/v1/pages'),

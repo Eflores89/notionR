@@ -28,7 +28,7 @@ getNotionDatabase <- function(secret, database, filters = NULL, show_progress = 
   options(dplyr.summarise.inform = FALSE) # to supress all the grouping warnings!
 
   # +++++++++ construct headers
-  headers = c(`Authorization` = secret, `Notion-Version` = '2022-02-22', `Content-Type` = 'application/json' )
+  headers = c(`Authorization` = secret, `Notion-Version` = '2022-06-28', `Content-Type` = 'application/json' )
 
   # +++++++++ api call -------------------------------------------------------------
   callAPI <- function(database, headers, filters, cursor){
