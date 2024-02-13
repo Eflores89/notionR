@@ -1,9 +1,10 @@
-#'  Adds a Paragraph Block to a Page
+#' Adds a Paragraph Block to a Page
 #'
-#'  Id refers to a page id, content should be only text. HTML will export to text.
-#'  @param secret API token
-#'  @param id Page id where block will be appended
-#'  @param content content to append
+#' Id refers to a page id, content should be only text. HTML will export to text.
+#'
+#' @param secret API token
+#' @param id Page id where block will be appended
+#' @param content content to append
 #'
 #' @importFrom httr PATCH
 #' @export
