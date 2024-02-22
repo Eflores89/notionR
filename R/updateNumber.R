@@ -1,10 +1,11 @@
 #' Updates a Number Property
 #'
-#'  Id refers to a page in a database, and should be normalized using normalizeChromeId().
-#'  @param secret API token
-#'  @param id Page id to be updated
-#'  @param property_name name of property to update (should be a number type property)
-#'  @param value value to update
+#' Id refers to a page in a database, and should be normalized using normalizeChromeId().
+#'
+#' @param secret API token
+#' @param id Page id to be updated
+#' @param property_name name of property to update (should be a number type property)
+#' @param value value to update
 #'
 #' @importFrom httr PATCH
 #' @export

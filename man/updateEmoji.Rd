@@ -6,9 +6,13 @@
 \usage{
 updateEmoji(secret, id, emoji)
 }
+\arguments{
+\item{secret}{API token}
+
+\item{id}{Page id to be updated}
+
+\item{emoji}{emoji to update to}
+}
 \description{
 Id refers to a page in a database, and should be normalized using normalizeChromeId().
-@param secret API token
-@param id Page id to be updated
-@param emoji emoji to update to
 }
