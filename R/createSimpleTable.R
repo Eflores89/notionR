@@ -78,6 +78,6 @@
 #
 # url <- "https://api.notion.com/v1/blocks/123123123123/children"
 #
-# response <- VERB("PATCH", url, add_headers('Notion-Version' = '2022-02-22'), content_type("application/octet-stream"), accept("application/json"))
+# response <- VERB("PATCH", url, add_headers('Notion-Version' = notionVersion), content_type("application/octet-stream"), accept("application/json"))
 #
 # content(response, "text")

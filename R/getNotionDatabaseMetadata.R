@@ -30,7 +30,7 @@ getNotionDatabaseMetadata <- function(secret, database, raw = FALSE){
 
   headers = c(
     `Authorization` = auth_secret,
-    `Notion-Version` = '2021-05-13'
+    `Notion-Version` = notionVersion
   )
 
   res <- httr::GET(url = paste0('https://api.notion.com/v1/databases/', database),

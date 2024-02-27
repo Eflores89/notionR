@@ -15,21 +15,21 @@
 #' @importFrom httr content_type
 #' @export
 archivePage <- function(secret, id){
-  
+
   value <- "true"
-  
+
   payload  <- sprintf(
     "{\"archived\":%s}",
     value
   )
-  
+
   auth_secret <- paste0("Bearer ", secret)
-  
+
   headers = c(
     `Authorization` = auth_secret,
-    `Notion-Version` = '2021-05-13',
+    `Notion-Version` = notionVersion,
     `Content-Type` = 'application/json' )
-  
+
   res <- httr::PATCH(url = paste0('https://api.notion.com/v1/pages/', id),
                      httr::add_headers(.headers = headers),
                      body = payload,

@@ -22,7 +22,7 @@ updatePageCover <- function(secret, id, cover_url){
 
   headers = c(
     `Authorization` = auth_secret,
-    `Notion-Version` = '2022-06-28',
+    `Notion-Version` = notionVersion,
     `Content-Type` = 'application/json' )
 
   res <- httr::PATCH(url = paste0('https://api.notion.com/v1/pages/', id),
