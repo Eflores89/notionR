@@ -19,7 +19,7 @@ getNotionPageContent <- function(secret, id){
   url <- paste0("https://api.notion.com/v1/blocks/", id, "/children?page_size=100")
 
   response <- httr::VERB("GET", url,
-                         add_headers(Notion_Version = '2022-06-28', Authorization = paste0('Bearer ', secret)),
+                         add_headers(Notion_Version = notionVersion, Authorization = paste0('Bearer ', secret)),
                          content_type("application/octet-stream"),
                          accept("application/json"))
 
