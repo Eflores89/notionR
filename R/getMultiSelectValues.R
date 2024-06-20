@@ -9,7 +9,7 @@
 #' @return vector
 #'
 #' @param column vector of column in data.frame (usually, after using getNotionDatabase, in form db$column_name )
-#' @strip_string String by which we should strip >1 selects in a single database row. Defaults to "|", as this is the default behaviour in getNotionDatabase().
+#' @param strip_string String by which we should strip >1 selects in a single database row. Defaults to "|", as this is the default behaviour in getNotionDatabase().
 #' @param no_na Strip all NA's? Defaults to TRUE.
 #' @param only_unique Export only unique values in vector? Defaults to TRUE.
 #' @param show_progress Print the count of values? Defaults to TRUE.

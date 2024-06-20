@@ -15,32 +15,56 @@
 #' @param cover_icon also include cover and icon metadata?
 #'
 #'
-#' @importFrom httr POST
-#' @importFrom httr content
 #' @importFrom tibble enframe
 #' @importFrom dplyr %>%
 #' @importFrom dplyr group_by
 #' @importFrom dplyr summarise
 #' @importFrom tidyr pivot_wider
 #' @importFrom dplyr bind_rows
+#' @importFrom httr2 request req_url_path req_headers req_body_json req_perform
+#' @importFrom httr2 resp_status_desc resp_body_json
 #' @export
 getNotionDatabase <- function(secret, database, filters = NULL, show_progress = FALSE, all_pages = TRUE, cover_icon = FALSE){
   options(dplyr.summarise.inform = FALSE) # to supress all the grouping warnings!
 
-  # +++++++++ construct headers
-  headers = c(`Authorization` = secret, `Notion-Version` = '2022-02-22', `Content-Type` = 'application/json' )
-
   # +++++++++ api call -------------------------------------------------------------
-  callAPI <- function(database, headers, filters, cursor){
-    res <- httr::POST(url = paste0('https://api.notion.com/v1/databases/', database, '/query'),
-                      httr::add_headers(.headers = headers),
-                      body = list("filter" = filters,
-                                  "start_cursor" = cursor),
-                      # start_cursor = cursor,
-                      encode = "json")
-    if(show_progress){ print(paste0("!! API Call: https://api.notion.com/v1/databases/", database, "/query")) }
+  callAPI_httr2 <- function(database, filters, cursor, page_size = 100, secret, show_progress) {
+    if (!is.numeric(page_size) || page_size < 1 || page_size > 100) {
+      stop("page_size should be a numeric between 1 and 100")
+    }
 
-    return( httr::content(res) )
+    # data to send
+    data_to_send <- list(
+      "filter" = filters,
+      # "sorts" = sorts, # not implemented
+      "start_cursor" = cursor,
+      # There must be at least one not NULL in the list, hence page_size
+      "page_size" = page_size
+    )
+    # Remove NULL to avoid bad request
+    data_to_send[sapply(data_to_send, is.null)] <- NULL
+
+    # add data to the request
+    the_req <- request("https://api.notion.com/") %>%
+      req_url_path(paste0("/v1/databases/", database, "/query")) %>%
+      req_headers("Authorization" = paste("Bearer" , secret)) %>%
+      req_headers("Content-Type" = "application/json") %>%
+      req_headers("Notion-Version" = "2022-06-28") %>%
+      req_body_json(data = data_to_send)
+
+    # Perform the request
+    resp <- req_perform(the_req)
+    # Check if ok
+    resp_status_desc(resp)
+
+    # Get response as list
+    res <- resp_body_json(resp)
+
+    if(show_progress){
+      print(paste0("!! API Call: https://api.notion.com/v1/databases/", database, "/query"))
+    }
+
+    return(res)
   }
 
   # +++++++++ this function "flattens" the results into a usable data.frame with 1 row per page (like the real database)
@@ -101,10 +125,16 @@ getNotionDatabase <- function(secret, database, filters = NULL, show_progress = 
     while( new_cursor ){
       if(show_progress){ print(paste0("- cursor: ", cursor, " / new_cursor: ", new_cursor )) }
 
-      r <- callAPI(database = database,
-                   headers = headers,
-                   filters = filters,
-                   cursor = cursor)
+      # r <- callAPI(database = database,
+      #              headers = headers,
+      #              filters = filters,
+      #              cursor = cursor)
+      #
+      r <- callAPI_httr2(database = database,
+                         filters = filters,
+                         cursor = cursor,
+                         secret = secret,
+                         show_progress = show_progress)
 
       new_cursor <- r$has_more
       cursor <- r$next_cursor
@@ -120,10 +150,16 @@ getNotionDatabase <- function(secret, database, filters = NULL, show_progress = 
     # no pagination, just the top 100
     if(show_progress){ print(paste0("++++ NO PAGINATION: ")) }
     cursor <- NULL
-    r <- callAPI(database = database,
-                 headers = headers,
-                 filters = filters,
-                 cursor = cursor)
+    # r <- callAPI(database = database,
+    #              headers = headers,
+    #              filters = filters,
+    #              cursor = cursor)
+
+    r <- callAPI_httr2(database = database,
+                       filters = filters,
+                       cursor = cursor,
+                       secret = secret,
+                       show_progress = show_progress)
 
     dd <- getItemsAndFlattenIntoDataFrame( r$results )
   }

@@ -6,10 +6,15 @@
 \usage{
 addBlockH2(secret, id, content, toggle = FALSE)
 }
+\arguments{
+\item{secret}{API token}
+
+\item{id}{Page id where block will be appended}
+
+\item{content}{content to append as H2}
+
+\item{toggle}{defaults to FALSE. If TRUE, will create an H1 Toggle.}
+}
 \description{
 Id refers to a page id, content should be only text.
-@param secret API token
-@param id Page id where block will be appended
-@param content content to append as H2
-@param toggle defaults to FALSE. If TRUE, will create an H1 Toggle.
 }
