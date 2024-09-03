@@ -15,6 +15,8 @@ getMultiSelectValues(
 \arguments{
 \item{column}{vector of column in data.frame (usually, after using getNotionDatabase, in form db$column_name )}
 
+\item{strip_string}{String by which we should strip >1 selects in a single database row. Defaults to "|", as this is the default behaviour in getNotionDatabase().}
+
 \item{no_na}{Strip all NA's? Defaults to TRUE.}
 
 \item{only_unique}{Export only unique values in vector? Defaults to TRUE.}

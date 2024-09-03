@@ -6,10 +6,15 @@
 \usage{
 updateURL(secret, id, property_name, value)
 }
+\arguments{
+\item{secret}{API token}
+
+\item{id}{Page id to be updated}
+
+\item{property_name}{name of property to update (should be a URL type property)}
+
+\item{value}{value to update}
+}
 \description{
 Id refers to a page in a database, and should be normalized using normalizeChromeId().
-@param secret API token
-@param id Page id to be updated
-@param property_name name of property to update (should be a URL type property)
-@param value value to update
 }

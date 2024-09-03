@@ -24,6 +24,8 @@ add_relation_id_filter(property, equals)
 
 \item{sort}{List of sort conditions. NULL by default.}
 
+\item{...}{A combination of filters}
+
 \item{property}{name or id of property (column) in database}
 
 \item{equals}{TRUE (default) or FALSE condition to meet in checkbox. Equals (contains) for select filter.}

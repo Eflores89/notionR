@@ -1,9 +1,10 @@
 #' Updates an Emoji Property of a page
 #'
-#'  Id refers to a page in a database, and should be normalized using normalizeChromeId().
-#'  @param secret API token
-#'  @param id Page id to be updated
-#'  @param emoji emoji to update to
+#' Id refers to a page in a database, and should be normalized using normalizeChromeId().
+#'
+#' @param secret API token
+#' @param id Page id to be updated
+#' @param emoji emoji to update to
 #'
 #' @importFrom httr PATCH
 #' @export
