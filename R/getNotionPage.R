@@ -2,7 +2,6 @@
 #'
 #' Gets a Notion Page
 #'
-#'
 #' @author Eduardo Flores
 #' @return list of response
 #'
@@ -14,16 +13,23 @@
 #' @importFrom httr content
 #' @importFrom httr content_type
 #' @export
-getNotionPage_WIP <- function(secret, id){
+getNotionPage <- function(secret, id){
 
   url <- paste0("https://api.notion.com/v1/pages/", id)
 
+  auth_secret <- paste0("Bearer ", secret)
+
+  headers = c(
+    `Authorization` = auth_secret,
+    `Notion-Version` = '2022-02-22',
+    `Content-Type` = 'application/json' )
+
   response <- httr::VERB("GET", url,
-                         add_headers(Notion_Version = '2022-02-22', Authorization = paste0('Bearer ', secret)),
+                         httr::add_headers(.headers = headers),
                          content_type("application/octet-stream"),
                          accept("application/json"))
 
-  r <- content(response, "text")
+  r <- content(response)
   r
 }
 

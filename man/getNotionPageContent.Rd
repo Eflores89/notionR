@@ -12,10 +12,10 @@ getNotionPageContent(secret, id)
 \item{id}{page id}
 }
 \value{
-list of response
+list of response with blocks and content
 }
 \description{
-Gets a Notion Page and the content inside it. Works with nested blocks too, as a page is also a block.
+Gets a Notion Page and the content inside it. Does not structure (yet) and instead provides a list of blocks and content.
 }
 \author{
 Eduardo Flores
