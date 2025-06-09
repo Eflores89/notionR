@@ -1,4 +1,4 @@
-# notionR 0.0.0.9001
+# notionR 0.0.9
 
 * Start move to httr2
 
