@@ -16,7 +16,6 @@
 <url><loc>https://Eflores89.github.io/notionR/reference/getNotionDatabase.html</loc></url>
 <url><loc>https://Eflores89.github.io/notionR/reference/getNotionDatabaseMetadata.html</loc></url>
 <url><loc>https://Eflores89.github.io/notionR/reference/getNotionPage.html</loc></url>
-<url><loc>https://Eflores89.github.io/notionR/reference/getNotionPageContent.html</loc></url>
 <url><loc>https://Eflores89.github.io/notionR/reference/index.html</loc></url>
 <url><loc>https://Eflores89.github.io/notionR/reference/isEmptyNotionDatabaseExport.html</loc></url>
 <url><loc>https://Eflores89.github.io/notionR/reference/normalizeChromePageIds.html</loc></url>
@@ -29,6 +28,7 @@
 <url><loc>https://Eflores89.github.io/notionR/reference/updateRelationship.html</loc></url>
 <url><loc>https://Eflores89.github.io/notionR/reference/updateSelect.html</loc></url>
 <url><loc>https://Eflores89.github.io/notionR/reference/updateText.html</loc></url>
+<url><loc>https://Eflores89.github.io/notionR/reference/updateTitle.html</loc></url>
 <url><loc>https://Eflores89.github.io/notionR/reference/updateURL.html</loc></url>
 </urlset>
 
