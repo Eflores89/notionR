@@ -12,7 +12,7 @@ The goal of notionR is to connect to Notion API from R. Create, Modify,
 Download databases or pages from Notion.
 
 This is a wrapper functions to access [Notion
-API](https://developers.notion.com%22) using R
+API](https://developers.notion.com) using R
 
 **This package is work in progress! Use at your own risk!**
 

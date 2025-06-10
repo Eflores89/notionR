@@ -1,5 +1,5 @@
 Package: notionR
-Title: R Interphase for Notion API
+Title: R Wrapper for Notion API
 Version: 0.0.9
 Author: Eduardo Flores
 Date: 2025-06-09
@@ -7,7 +7,7 @@ Maintainer: Eduardo Flores <eduardo@enelmargen.org>
 Authors@R: c(person("Eduardo", "Flores", role = c("aut", "cre"),
                      email = "eduardo@enelmargen.org"))
 Description: Provides wrappers to access the Notion API using R.
-License: MIT + file LICENSE
+License: MIT
 URL: http://www.enelmargen.org/notionR/
 Depends: 
     R (>= 2.10)
