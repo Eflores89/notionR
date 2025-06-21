@@ -7,6 +7,8 @@
 #' @param property_name name of property to update (should be a select type property)
 #' @param value value to update
 #'
+#' @return list
+#'
 #' @importFrom httr PATCH
 #' @export
 updateSelect <- function(secret, id, property_name, value){

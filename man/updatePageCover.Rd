@@ -15,6 +15,8 @@ updatePageCover(secret, id, cover_url)
 }
 \value{
 list of response
+
+list
 }
 \description{
 Updates a page cover to the url specified

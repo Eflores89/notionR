@@ -7,6 +7,8 @@
 #' @param property_name name of property to update (should be a checkbox type property)
 #' @param value value to update. Use R bollean object. Defaults to TRUE.
 #'
+#' @return list
+#'
 #' @importFrom httr PATCH
 #' @export
 updateCheckbox <- function(secret, id, property_name, value = TRUE){

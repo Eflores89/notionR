@@ -8,6 +8,7 @@
 #' @param parent_id database id where page will be created or page under which it will nest
 #' @param title_property name of the title property
 #' @param title title of the new page
+#' @return list
 #'
 #' @importFrom stringi stri_split_regex
 #' @export

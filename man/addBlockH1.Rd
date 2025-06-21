@@ -15,6 +15,9 @@ addBlockH1(secret, id, content, toggle = FALSE)
 
 \item{toggle}{defaults to FALSE. If TRUE, will create an H1 Toggle.}
 }
+\value{
+list
+}
 \description{
 Id refers to a page id, content should be only text.
 }

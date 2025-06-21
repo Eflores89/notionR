@@ -5,6 +5,7 @@
 #' @param secret API token
 #' @param id Page id where block will be appended
 #' @param content content to append
+#' @return list
 #'
 #' @importFrom httr PATCH
 #' @export

@@ -13,6 +13,8 @@ deleteBlock(secret, id)
 }
 \value{
 list of response
+
+list
 }
 \description{
 Deletes a block

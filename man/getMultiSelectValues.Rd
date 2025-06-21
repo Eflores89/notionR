@@ -7,9 +7,9 @@
 getMultiSelectValues(
   column,
   strip_string = "\\\\|",
-  no_na = T,
-  only_unique = T,
-  show_progress = T
+  no_na = TRUE,
+  only_unique = TRUE,
+  show_progress = TRUE
 )
 }
 \arguments{

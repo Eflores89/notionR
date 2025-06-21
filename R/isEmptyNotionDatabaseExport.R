@@ -1,6 +1,7 @@
 #' Is the database output empty ?
 #'
 #' @param dataframe The database output
+#' @return vector
 #'
 #' @export
 isEmptyNotionDatabaseExport <- function(dataframe){

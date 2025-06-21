@@ -1,13 +1,13 @@
 Package: notionR
-Title: R Wrapper for Notion API
+Title: R Wrapper for 'Notion' API
 Version: 0.0.9
 Date: 2025-06-09
 Maintainer: Eduardo Flores <eduardo@enelmargen.org>
 Authors@R: c(person("Eduardo", "Flores", role = c("aut", "cre"),
                      email = "eduardo@enelmargen.org"))
-Description: Provides wrappers to access the Notion API using R.
+Description: Provides functions to query databases and notes in 'Notion', using the official REST API. To learn more about the functionality of the 'Notion' API, see <https://developers.notion.com/>.
 License: MIT + file LICENSE
-URL: http://www.enelmargen.org/notionR/
+URL: <https://www.enelmargen.org/notionR/>
 Depends: 
     R (>= 2.10)
 Imports: 

@@ -15,6 +15,9 @@ updateNumber(secret, id, property_name, value)
 
 \item{value}{value to update}
 }
+\value{
+list
+}
 \description{
 Id refers to a page in a database, and should be normalized using normalizeChromeId().
 }

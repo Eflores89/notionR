@@ -15,6 +15,9 @@ updateRelationship(secret, id, property_name, value)
 
 \item{value}{value to update (should be a unique page id)}
 }
+\value{
+list
+}
 \description{
 Id refers to a page in a database, and should be normalized using normalizeChromeId().
 }

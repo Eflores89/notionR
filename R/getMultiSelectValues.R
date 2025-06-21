@@ -16,7 +16,7 @@
 #'
 #' @importFrom stringi stri_split_regex
 #' @export
-getMultiSelectValues <- function(column, strip_string = "\\|", no_na = T, only_unique = T, show_progress = T){
+getMultiSelectValues <- function(column, strip_string = "\\|", no_na = TRUE, only_unique = TRUE, show_progress = TRUE){
   l1 <- length(column)
 
   # strip NA's

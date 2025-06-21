@@ -6,6 +6,7 @@
 #' @param id Page id where block will be appended
 #' @param content content to append as H1
 #' @param toggle defaults to FALSE. If TRUE, will create an H1 Toggle.
+#' @return list
 #'
 #' @importFrom httr PATCH
 #' @export

@@ -15,6 +15,9 @@ updateMultiSelect(secret, id, property_name, value)
 
 \item{value}{value(s) to update. Could be 1 value or multiple, created with c().}
 }
+\value{
+list
+}
 \description{
 Id refers to a page in a database, and should be normalized using normalizeChromeId().
 }

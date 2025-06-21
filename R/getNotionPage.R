@@ -3,7 +3,7 @@
 #' Gets a Notion Page
 #'
 #' @author Eduardo Flores
-#' @return list of response
+#' @return list
 #'
 #' @param secret Notion API token
 #' @param id page id

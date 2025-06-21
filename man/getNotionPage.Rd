@@ -12,7 +12,7 @@ getNotionPage(secret, id)
 \item{id}{page id}
 }
 \value{
-list of response
+list
 }
 \description{
 Gets a Notion Page

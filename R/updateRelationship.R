@@ -7,6 +7,8 @@
 #' @param property_name name of property to update (should be a relationship type property)
 #' @param value value to update (should be a unique page id)
 #'
+#' @return list
+#'
 #' @importFrom httr PATCH
 #' @export
 updateRelationship <- function(secret, id, property_name, value){

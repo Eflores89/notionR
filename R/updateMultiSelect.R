@@ -7,6 +7,8 @@
 #' @param property_name name of property to update (should be a multiselect type property)
 #' @param value value(s) to update. Could be 1 value or multiple, created with c().
 #'
+#' @return list
+#'
 #' @details This will rewrite whatever is already in the property. It will NOT append another select.
 #'
 #' @importFrom httr PATCH

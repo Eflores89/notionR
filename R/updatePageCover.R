@@ -10,6 +10,8 @@
 #' @param id page id to be updated
 #' @param cover_url url of cover to be update
 #'
+#' @return list
+#'
 #'
 #' @importFrom httr PATCH
 #' @importFrom httr content

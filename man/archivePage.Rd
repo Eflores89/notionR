@@ -13,6 +13,8 @@ archivePage(secret, id)
 }
 \value{
 list of response
+
+list
 }
 \description{
 Archive's a notion page.

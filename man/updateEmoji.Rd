@@ -13,6 +13,9 @@ updateEmoji(secret, id, emoji)
 
 \item{emoji}{emoji to update to}
 }
+\value{
+list
+}
 \description{
 Id refers to a page in a database, and should be normalized using normalizeChromeId().
 }

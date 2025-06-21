@@ -7,6 +7,8 @@
 #' @param property_name name of property to update (should be the title property of database)
 #' @param value value to update
 #'
+#' @return list
+#'
 #' @importFrom httr PATCH
 #' @export
 updateTitle <- function(secret, id, property_name, value){

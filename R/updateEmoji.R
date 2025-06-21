@@ -6,6 +6,8 @@
 #' @param id Page id to be updated
 #' @param emoji emoji to update to
 #'
+#' @return list
+#'
 #' @importFrom httr PATCH
 #' @export
 updateEmoji <- function(secret, id, emoji){

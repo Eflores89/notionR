@@ -15,6 +15,9 @@ createNotionPage(secret, parent_id, title_property, title = "untitled")
 
 \item{title}{title of the new page}
 }
+\value{
+list
+}
 \description{
 Silent Return
 }

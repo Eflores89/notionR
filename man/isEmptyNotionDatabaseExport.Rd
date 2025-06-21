@@ -9,6 +9,9 @@ isEmptyNotionDatabaseExport(dataframe)
 \arguments{
 \item{dataframe}{The database output}
 }
+\value{
+vector
+}
 \description{
 Is the database output empty ?
 }

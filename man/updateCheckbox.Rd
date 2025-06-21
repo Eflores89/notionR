@@ -15,6 +15,9 @@ updateCheckbox(secret, id, property_name, value = TRUE)
 
 \item{value}{value to update. Use R bollean object. Defaults to TRUE.}
 }
+\value{
+list
+}
 \description{
 Id refers to a page in a database, and should be normalized using normalizeChromeId().
 }

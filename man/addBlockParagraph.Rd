@@ -13,6 +13,9 @@ addBlockParagraph(secret, id, content)
 
 \item{content}{content to append}
 }
+\value{
+list
+}
 \description{
 Id refers to a page id, content should be only text. HTML will export to text.
 }

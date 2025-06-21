@@ -8,6 +8,7 @@
 #'
 #' @param secret Notion API token
 #' @param id block id
+#' @return list
 #'
 #'
 #' @importFrom httr PATCH content content_type add_headers accept
@@ -21,6 +22,8 @@ deleteBlock <- function(secret, id){
                          content_type("application/octet-stream"),
                          accept("application/json"))
 
-  # r <- content(response, "text")
-  response
+  d <- httr::content(response)
+
+  print(paste0("Notion Block ",id," Deleted."))
+  return(d)
 }
