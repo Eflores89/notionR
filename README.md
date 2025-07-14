@@ -5,7 +5,7 @@
 
 <!-- badges: start -->
 
-[![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/inegiR)](http://cran.r-project.org/package=inegiR) ![downloads](http://cranlogs.r-pkg.org/badges/grand-total/inegiR)
+[![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/notionR)](http://cran.r-project.org/package=notionR) ![downloads](http://cranlogs.r-pkg.org/badges/grand-total/notionR)
 
 <!-- badges: end -->
 
