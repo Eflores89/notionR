@@ -5,7 +5,8 @@
 
 <!-- badges: start -->
 
-[![R-CMD-check](https://github.com/Eflores89/notionR/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/Eflores89/notionR/actions/workflows/R-CMD-check.yaml)
+[![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/inegiR)](http://cran.r-project.org/package=inegiR) ![downloads](http://cranlogs.r-pkg.org/badges/grand-total/inegiR)
+
 <!-- badges: end -->
 
 The goal of notionR is to connect to Notion API from R. Create, Modify,
